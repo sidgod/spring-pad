@@ -8,4 +8,6 @@
 .settings
 .classpath
 .project
-.springbeans
+.springBeans
+
+target
