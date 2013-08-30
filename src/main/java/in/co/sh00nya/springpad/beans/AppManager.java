@@ -1,5 +1,8 @@
 package in.co.sh00nya.springpad.beans;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AppManager {
@@ -20,6 +23,16 @@ public class AppManager {
 		facebookSvc.login(username, password);
 		facebookSvc.logout(username);
 		System.out.println("Done with operation ...");
+	}
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("AppManager constructed ...");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("AppManager destroyed ...");
 	}
 
 }
