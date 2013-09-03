@@ -15,5 +15,5 @@ public class Runner {
 		AppManager appManager = ctx.getBean("appManager", AppManager.class);
 		appManager.startOperation(username, password);
 	}
-
+	
 }
