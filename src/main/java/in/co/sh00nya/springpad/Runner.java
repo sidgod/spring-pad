@@ -41,9 +41,12 @@ public class Runner {
 		Employee employee = new Employee(100, "Sid", "BappaMorya", 10000);
 		EvaluationContext eContext = new StandardEvaluationContext(employee);
 		ExpressionParser parser = new SpelExpressionParser();
-		Expression expression = parser.parseExpression("salary");
+		Expression expression = parser.parseExpression("salary - 5000");
 		Object valObject = expression.getValue(eContext);
 		System.out.println(valObject);
+		expression = parser.parseExpression("salary");
+		expression.setValue(eContext, 20000);
+		System.out.println(employee);
 	}
 	
 }
