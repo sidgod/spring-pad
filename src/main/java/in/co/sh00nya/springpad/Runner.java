@@ -4,11 +4,18 @@ import in.co.sh00nya.springpad.beans.AppManager;
 import in.co.sh00nya.springpad.beans.UserCredentials;
 import in.co.sh00nya.springpad.beans.UserCredentialsValidator;
 import in.co.sh00nya.springpad.cfg.AppConfig;
+import in.co.sh00nya.springpad.spel.Employee;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.expression.EvaluationContext;
+import org.springframework.expression.Expression;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
+import org.springframework.validation.ObjectError;
 
 public class Runner {
 
@@ -29,6 +36,14 @@ public class Runner {
 		binder.validate();
 		BindingResult result = binder.getBindingResult();
 		System.out.println(result);
+		
+		// SPEL stuff
+		Employee employee = new Employee(100, "Sid", "BappaMorya", 10000);
+		EvaluationContext eContext = new StandardEvaluationContext(employee);
+		ExpressionParser parser = new SpelExpressionParser();
+		Expression expression = parser.parseExpression("salary");
+		Object valObject = expression.getValue(eContext);
+		System.out.println(valObject);
 	}
 	
 }
