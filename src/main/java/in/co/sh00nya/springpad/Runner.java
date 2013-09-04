@@ -23,6 +23,7 @@ public class Runner {
 		// Validation stuff
 		UserCredentials credentials = new UserCredentials();
 		credentials.setUsername("sidgod");
+		credentials.setPassword("");
 		DataBinder binder = new DataBinder(credentials);
 		binder.addValidators(new UserCredentialsValidator());
 		binder.validate();

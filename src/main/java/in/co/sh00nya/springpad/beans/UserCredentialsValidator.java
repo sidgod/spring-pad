@@ -8,7 +8,7 @@ public class UserCredentialsValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		return UserCredentials.class.isAssignableFrom(arg0);
+		return UserCredentials.class.equals(arg0);
 	}
 
 	@Override
