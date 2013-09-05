@@ -1,5 +1,6 @@
 package in.co.sh00nya.springpad.cfg;
 
+import in.co.sh00nya.springpad.aop.SomeAspect;
 import in.co.sh00nya.springpad.aop.SomeProcessor;
 import in.co.sh00nya.springpad.beans.AppManager;
 import in.co.sh00nya.springpad.beans.FacebookSvc;
@@ -26,6 +27,11 @@ public class AppConfig {
 	@Bean
 	public SomeProcessor someProcessor() {
 		return new SomeProcessor();
+	}
+	
+	@Bean
+	public SomeAspect someAspect() {
+		return new SomeAspect();
 	}
 
 }
