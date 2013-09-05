@@ -1,5 +1,6 @@
 package in.co.sh00nya.springpad;
 
+import in.co.sh00nya.springpad.aop.SomeProcessor;
 import in.co.sh00nya.springpad.beans.AppManager;
 import in.co.sh00nya.springpad.beans.UserCredentials;
 import in.co.sh00nya.springpad.beans.UserCredentialsValidator;
@@ -47,6 +48,10 @@ public class Runner {
 		expression = parser.parseExpression("salary");
 		expression.setValue(eContext, 20000);
 		System.out.println(employee);
+		
+		// AOP Stuff
+		SomeProcessor processor = ctx.getBean("someProcessor", SomeProcessor.class);
+		processor.processSomeCrap();
 	}
 	
 }

@@ -82,6 +82,12 @@
 			<version>1.0</version>
 		</dependency>
             
+        <!-- AspectJ Depy -->
+        <dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.11</version>
+		</dependency>
 
 	</dependencies>	
 </project>
